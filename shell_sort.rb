@@ -26,8 +26,6 @@ class Array
 
     end
 
-    p self
-
     self.shell_sort(devide_num/2)
   end
 
