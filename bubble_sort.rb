@@ -37,4 +37,4 @@ class Array
 end
 
 # 実行
-p [5, 7, 3, 4, 2, 8, 1, 6].bubble_sort
+# p [5, 7, 3, 4, 2, 8, 1, 6].bubble_sort

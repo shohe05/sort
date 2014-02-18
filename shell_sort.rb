@@ -10,20 +10,20 @@ class Array
   def shell_sort
 
     # 何個ずつに分割するか
-    devide_width = self.size/2
+    devide_num = self.size/2
 
     # ２つに分割
     0.upto(self.size/2-1) do |idx|
-      self[idx], self[idx+devide_width] = [self[idx], self[idx+devide_width]].bubble_sort
+      self[idx], self[idx+devide_num] = [self[idx], self[idx+devide_num]].bubble_sort
     end
 
     p self
 
     # 4つに分割
-    devide_width /= 2
+    devide_num /= 2
 
     0.upto(self.size/4-1) do |idx|
-      self[idx], self[idx+devide_width], self[idx+devide_width+devide_width], self[idx+devide_width+devide_width+devide_width] = [self[idx], self[idx+devide_width], self[idx+devide_width+devide_width], self[idx+devide_width+devide_width+devide_width]].bubble_sort
+      self[idx], self[idx+devide_num], self[idx+devide_num+devide_num], self[idx+devide_num+devide_num+devide_num] = [self[idx], self[idx+devide_num], self[idx+devide_num+devide_num], self[idx+devide_num+devide_num+devide_num]].bubble_sort
     end
 
     p self
