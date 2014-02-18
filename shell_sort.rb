@@ -1,6 +1,7 @@
 # シェルソートの実装
 # 配列を分割する
 # 要素がひとつになるまで分割
+# 再帰で書く
 
 require './bubble_sort'
 
@@ -21,9 +22,7 @@ class Array
 
       # 分割した配列をバブルソートして元の配列に突っ込む
       target_array.bubble_sort!
-      target_idxs.each do |i|
-        self[i] = target_array.shift
-      end
+      target_idxs.each {|i| self[i] = target_array.shift}
 
     end
 

@@ -16,7 +16,7 @@
 class Array
 
   # バブルソート
-  def bubble_sort
+  def bubble_sort!
 
     # 左端 (インクリメント)
     1.upto(self.size-1) do |front|
