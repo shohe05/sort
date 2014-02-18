@@ -8,7 +8,10 @@
 # 山口さんに講評をもらう
 # - lastとstart
 # - 比較する２つの変数がstartとstart-1では、なにしてるのかわからない。名前が悪い
+# - 左に移動していく変数がbackっておかしい
 # - swapはいらないしかも書き方がrubyっぽくない
+
+# TODO: backを違う名前にする
 
 class Array
 
@@ -19,9 +22,9 @@ class Array
     1.upto(self.size-1) do |front|
 
       # 右端(左端と等しくなるまでデクリメント)
-      (self.size-1).downto(front) do |back|
+      (self.size-1).downto(front) do |compare_place|
         # 比較する隣り合う2つの要素
-        right_elem, left_elem = back, back-1
+        right_elem, left_elem = compare_place, compare_place-1
 
         # 隣り合う２つの要素を見比べて左側の要素が大きければswap!を呼ぶ
         self[right_elem], self[left_elem] = self[left_elem], self[right_elem] if self[right_elem] < self[left_elem]
