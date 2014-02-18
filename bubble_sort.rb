@@ -8,6 +8,7 @@
 # 山口さんに講評をもらう
 # - lastとstart
 # - 比較する２つの変数がstartとstart-1では、なにしてるのかわからない。名前が悪い
+# - swapはいらないしかも書き方がrubyっぽくない
 
 class Array
 
@@ -23,18 +24,9 @@ class Array
         right_elem, left_elem = back, back-1
 
         # 隣り合う２つの要素を見比べて左側の要素が大きければswap!を呼ぶ
-        self.swap!(right_elem, left_elem) if self[right_elem] < self[left_elem]
+        self[right_elem], self[left_elem] = self[left_elem], self[right_elem] if self[right_elem] < self[left_elem]
       end
     end
-
-    self
-  end
-
-  # 配列の要素を2つ指定してそれらを入れ替える
-  def swap!(idx1, idx2)
-    temp = self[idx1]
-    self[idx1] = self[idx2]
-    self[idx2] = temp
 
     self
   end
