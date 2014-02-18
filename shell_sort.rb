@@ -7,31 +7,32 @@ require './bubble_sort'
 class Array
 
   # シェルソート
-  def shell_sort
+  def shell_sort(devide_num = self.size/2)
 
-    # 何個ずつに分割するか
-    devide_num = self.size/2
+    # 1個に分割されたら、終了
+    return self if devide_num < 1
 
-    # ２つに分割
-    0.upto(self.size/2-1) do |idx|
-      self[idx], self[idx+devide_num] = [self[idx], self[idx+devide_num]].bubble_sort
+    1.upto(devide_num) do |idx|
+
+      # 配列を分割する
+      target_array = Array.new
+      target_idxs = 0.upto(self.size-1).select {|i| (i-idx) % devide_num == 0}
+      target_idxs.each {|i| target_array << self[i]}
+
+      # 分割した配列をバブルソートして元の配列に突っ込む
+      target_array.bubble_sort!
+      target_idxs.each do |i|
+        self[i] = target_array.shift
+      end
+
     end
 
     p self
 
-    # 4つに分割
-    devide_num /= 2
-
-    0.upto(self.size/4-1) do |idx|
-      self[idx], self[idx+devide_num], self[idx+devide_num+devide_num], self[idx+devide_num+devide_num+devide_num] = [self[idx], self[idx+devide_num], self[idx+devide_num+devide_num], self[idx+devide_num+devide_num+devide_num]].bubble_sort
-    end
-
-    p self
-
-    p self.bubble_sort
+    self.shell_sort(devide_num/2)
   end
 
 end
 
 # 実行
-[5, 7, 3, 4, 2, 8, 1, 6].shell_sort
+p [5, 7, 3, 4, 2, 8, 1, 6].shell_sort
