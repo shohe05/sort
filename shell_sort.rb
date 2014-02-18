@@ -15,7 +15,7 @@ require './bubble_sort'
 class Array
 
   # シェルソート
-  def shell_sort(devide_num = self.size/2)
+  def shell_sort!(devide_num = self.size/2)
 
     # 1個に分割されたら、終了
     return self if devide_num < 1
@@ -31,12 +31,14 @@ class Array
       target_array.bubble_sort!
       target_idxs.each {|i| self[i] = target_array.shift}
 
+      p self
+
     end
 
-    self.shell_sort(devide_num/2)
+    self.shell_sort!(devide_num/2)
   end
 
 end
 
 # 実行
-p [5, 7, 3, 4, 2, 8, 1, 6].shell_sort
+p [5, 7, 3, 4, 2, 8, 1, 6].shell_sort!
