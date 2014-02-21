@@ -3,7 +3,7 @@
 
 class Array
 
-  def quick_sort()
+  def quick_sort
     # ソートが完了していたら終了
     return self if self == [] or self.zip(self[1..self.size-1] << self.max).map {|e| e[0] == e.min}.all?
 
