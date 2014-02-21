@@ -29,4 +29,8 @@ class Array
 end
 
 # 実行
-p [5, 1, 4, 3, 2, 99, 5, 3, 44, 2, 2].quick_sort
+start_time = Time.now
+p [0, 5, 9, 2, 10, 1, 3, 4, 7, 8, 6].quick_sort
+end_time = Time.now
+
+p (end_time - start_time).to_s + " second took."
