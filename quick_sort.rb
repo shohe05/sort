@@ -4,30 +4,25 @@
 class Array
 
   def quick_sort()
+    # ソートが完了していたら終了
     return self if self == [] or self.zip(self[1..self.size-1] << self.max).map {|e| e[0] == e.min}.all?
 
     standard_value = self[self.size / 2]
-    middle = []
     smaller = []
+    middle = []
     bigger = []
 
     self.each do |e|
       # 基準値より小さかったら先頭に追加、大きかったら末尾に追加
-      if e > standard_value
-        bigger << e
-        p "bigger: #{e}"
-      elsif e < standard_value
+      if e < standard_value
         smaller << e
-        p "smaller: #{e}"
+      elsif e == standard_value
+         middle << e
       else
-        middle << e
-
+        bigger << e
       end
 
     end
-    p "self: #{self}"
-    p "smaller #{smaller}"
-    p "bigger: #{bigger}"
 
     return smaller.quick_sort + middle + bigger.quick_sort
   end
