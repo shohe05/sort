@@ -13,11 +13,11 @@ class Array
     bigger = []
 
     self.each do |e|
-      # 基準値より小さかったら先頭に追加、大きかったら末尾に追加
+
       if e < standard_value
         smaller << e
       elsif e == standard_value
-         middle << e
+        middle << e
       else
         bigger << e
       end
