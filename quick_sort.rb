@@ -8,23 +8,23 @@ class Array
     return self if self == [] or self.zip(self[1..self.size-1] << self.max).map {|e| e[0] == e.min}.all?
 
     standard_value = self[self.size / 2]
-    smaller = []
-    middle = []
-    bigger = []
+    smallers = []
+    equals = []
+    biggers = []
 
     self.each do |e|
 
       if e < standard_value
-        smaller << e
+        smallers << e
       elsif e == standard_value
-        middle << e
+        equals << e
       else
-        bigger << e
+        biggers << e
       end
 
     end
 
-    return smaller.quick_sort + middle + bigger.quick_sort
+    return smallers.quick_sort + equals + biggers.quick_sort
   end
 end
 
