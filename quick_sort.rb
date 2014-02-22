@@ -2,19 +2,18 @@
 # 真ん中を基準値とする
 
 class Array
-
   def quick_sort
     # ソートが完了していたら終了
-    return self if self == [] or self.zip(self[1..self.size-1] << self.max).map {|e| e[0] == e.min}.all?
+    return self if self.empty? or self.zip(self[1...self.size] << self.max).map {|e| e[0] == e.min}.all?
 
-    standard_value = self[self.size / 2]
+    pivot = self[self.size / 2]
     smallers = []
     equals = []
     biggers = []
 
     self.each do |e|
 
-      case e <=> standard_value
+      case e <=> pivot
       when 1 then biggers << e
       when -1 then smallers << e
       else equals << e
