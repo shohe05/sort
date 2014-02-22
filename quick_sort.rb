@@ -7,7 +7,6 @@ class Array
     return self if empty? or zip(self[1...size] << max).map {|e| e[0] == e.min}.all?
 
     # 枢軸
-    # pivot = self[self.size / 2]
     pivot = (min + max) / 2
 
     smallers, biggers = partition {|e| e < pivot}
