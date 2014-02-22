@@ -14,12 +14,10 @@ class Array
 
     self.each do |e|
 
-      if e < standard_value
-        smallers << e
-      elsif e == standard_value
-        equals << e
-      else
-        biggers << e
+      case e <=> standard_value
+      when 1 then biggers << e
+      when -1 then smallers << e
+      else equals << e
       end
 
     end
