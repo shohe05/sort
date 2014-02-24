@@ -31,8 +31,6 @@ class Array
       target_array.bubble_sort!
       target_idxs.each {|i| self[i] = target_array.shift}
 
-      p self
-
     end
 
     self.shell_sort!(devide_num/2)

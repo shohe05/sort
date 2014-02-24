@@ -1,11 +1,15 @@
 # マージソートを実装
-class Array
-  def merge_sort
-    return minmax if self.size <= 2
+require "./bubble_sort"
 
-    self[0..self.size / 2 - 1].merge_sort + self[self.size / 2..self.size - 1].merge_sort
+class Array
+  def merge_sort(merge = false)
+    if size <= 2
+      return self.bubble_sort!
+    end
+
+    ((self[0..size / 2 - 1].merge_sort).bubble_sort! + (self[size / 2..size - 1].merge_sort).bubble_sort!).bubble_sort!
   end
 end
 
 # 実行
-p [3, 1, 2, 5, 4].merge_sort
+p [5, 8, 4, 3, 7, 1, 2, 6].merge_sort
