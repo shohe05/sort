@@ -3,9 +3,7 @@ require "./bubble_sort"
 
 class Array
   def merge_sort(merge = false)
-    if size <= 2
-      return self.bubble_sort!
-    end
+    return bubble_sort! if size <= 2
 
     ((self[0..size / 2 - 1].merge_sort).bubble_sort! + (self[size / 2..size - 1].merge_sort).bubble_sort!).bubble_sort!
   end
