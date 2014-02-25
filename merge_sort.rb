@@ -1,4 +1,6 @@
 # マージソートを実装
+
+# TODO selfを２分割はよくない
 class Array
   def merge_sort
     return ascending_merge if size == 2
@@ -7,6 +9,7 @@ class Array
   end
 
   # 昇順にマージ
+  # TODO ループで書いているが、再帰で書き直す
   def ascending_merge
     # 中央値をとる
     pivot = (size.to_f / 2.to_f).ceil
@@ -31,6 +34,7 @@ class Array
 
     merged
   end
+
 end
 
 # 実行
