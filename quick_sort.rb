@@ -2,6 +2,7 @@
 # 真ん中を基準値とする
 
 class Array
+  # 自分で考えた方
   def quick_sort
     # ソートが完了していたら終了
     return self if empty? or zip(self[1...size] << max).map {|e| e[0] == e.min}.all?
@@ -14,6 +15,7 @@ class Array
     smallers.quick_sort + biggers.quick_sort
   end
 
+  # Wikipedia見て書いた
   def quicksort(left = 0, right = self.size - 1)
     return self if left >= right
 
