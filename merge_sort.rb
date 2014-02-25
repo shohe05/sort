@@ -1,12 +1,19 @@
 # マージソートを実装
 
-# TODO selfを２分割はよくない
+# 山口さんに講評をいただいた
+# return ascending_mergeの行について
+# "self."を省略しないと読みづらい
+# ascending_mergeは名前が悪い
+# マージソートを知らない人からしたらどんなメソッドかよくわからない
+
 class Array
   def merge_sort
-    return ascending_merge if size == 2
+    return self.ascending_merge if self.size == 2
 
     ((self[0..size / 2 - 1].merge_sort).ascending_merge + (self[size / 2..size - 1].merge_sort).ascending_merge).ascending_merge
   end
+
+  protected
 
   # 昇順にマージ
   # TODO ループで書いているが、再帰で書き直す
