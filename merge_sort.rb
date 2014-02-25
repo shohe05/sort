@@ -1,24 +1,23 @@
 # マージソートを実装
 
 # 山口さんに講評をいただいた
-# return ascending_mergeの行について
+# return compare_and_mergeの行について
 # "self."を省略しないと読みづらい
-# ascending_mergeは名前が悪い
+# compare_and_mergeは名前が悪い
 # マージソートを知らない人からしたらどんなメソッドかよくわからない
 
 class Array
   def merge_sort
-    return self.ascending_merge if self.size == 2
+    return self.compare_and_merge if self.size == 2
 
-    ((self[0..size / 2 - 1].merge_sort).ascending_merge + (self[size / 2..size - 1].merge_sort).ascending_merge).ascending_merge
+    ((self[0..size / 2 - 1].merge_sort).compare_and_merge + (self[size / 2..size - 1].merge_sort).compare_and_merge).compare_and_merge
   end
 
   protected
 
   # 昇順にマージ
   # TODO ループで書いているが、再帰で書き直す
-  def ascending_merge
-    # 中央値をとる
+  def compare_and_merge
     pivot = (size.to_f / 2.to_f).ceil
 
     # 中央値をもとに左右に分割
